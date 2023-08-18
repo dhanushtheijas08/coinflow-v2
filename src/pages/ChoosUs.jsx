@@ -2,7 +2,6 @@ import ChooseUsCard from "../components/ChooseUsCard";
 import SectionHeading from "../components/SectionHeading";
 import chooseUsCardData from "../data/chooseUsCardData";
 function ChoosUs() {
-  // heading, content, iconsPath
   const renderCards = chooseUsCardData.map((card) => (
     <ChooseUsCard
       key={card.id}

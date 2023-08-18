@@ -1,9 +1,12 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import HeroSectionCard from "../components/HeroSectionCard";
+import { useCryptoContext } from "../contexts/UseCryptoContextProvider";
 
-function HomePage({ cryptoData }) {
-  const renderCryptoList = cryptoData.map((crypto) => (
+function HomePage() {
+  let { cryptoData } = useCryptoContext();
+  let newCryptoData = cryptoData.slice(0, 4);
+  const renderCryptoList = newCryptoData.map((crypto) => (
     <HeroSectionCard
       key={crypto.id}
       name={crypto.name}

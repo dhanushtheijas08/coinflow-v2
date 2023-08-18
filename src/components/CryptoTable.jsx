@@ -1,6 +1,8 @@
+import { useCryptoContext } from "../contexts/UseCryptoContextProvider";
 import SingleTableRow from "./SingleTableRow";
 
-function CryptoTable({ cryptoData }) {
+function CryptoTable() {
+  let { cryptoData } = useCryptoContext();
   const renderTableRow = cryptoData.map((crypto) => (
     <SingleTableRow
       key={crypto.id}

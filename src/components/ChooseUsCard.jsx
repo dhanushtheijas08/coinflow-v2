@@ -1,6 +1,6 @@
 function ChooseUsCard({ heading, content, iconPath }) {
   return (
-    <div className="bg-chooseUsCardBackground border-2 rounded-lg border-chooseUsCardBorder max-w-sm md:max-w-fit  flex px-2 py-2 gap-2 md:gap-4 lg:px-6 lg:py-4 justify-center">
+    <div className="bg-chooseUsCardBackground hover:bg-chooseUsCardBackgroundHover border-2 rounded-lg border-chooseUsCardBorder max-w-sm md:max-w-fit  flex px-2 py-2 gap-2 md:gap-4 lg:px-6 lg:py-4 justify-center cursor-pointer">
       <div className=" p-2  rounded-sm md:rounded-lg bg-gradient self-center">
         <img
           src={iconPath}
