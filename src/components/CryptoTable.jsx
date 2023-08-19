@@ -3,7 +3,7 @@ import SingleTableRow from "./SingleTableRow";
 
 function CryptoTable() {
   let { cryptoData } = useCryptoContext();
-  const renderTableRow = cryptoData.map((crypto) => (
+  const renderTableRows = cryptoData.map((crypto) => (
     <SingleTableRow
       key={crypto.id}
       id={crypto.id}
@@ -14,27 +14,20 @@ function CryptoTable() {
       market_cap_change_percentage_24h={crypto.market_cap_change_percentage_24h}
     />
   ));
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg my-16">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="text-xl font-medium uppercase  bg-gradient text-white">
-          <tr>
-            <th scope="col" className="px-6 py-3">
-              Coin
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Price
-            </th>
-            <th scope="col" className="px-6 py-3">
-              24h Change
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Market Cap
-            </th>
-          </tr>
-        </thead>
-        <tbody>{renderTableRow}</tbody>
-      </table>
+      <div className="w-full text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-xl font-medium uppercase bg-gradient text-white">
+          <div className="flex">
+            <div className="px-6 py-3 w-1/4">Coin</div>
+            <div className="px-6 py-3 w-1/4">Price</div>
+            <div className="px-6 py-3 w-1/4">24h Change</div>
+            <div className="px-6 py-3 w-1/4">Market Cap</div>
+          </div>
+        </div>
+        <div>{renderTableRows}</div>
+      </div>
     </div>
   );
 }

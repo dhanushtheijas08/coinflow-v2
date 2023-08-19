@@ -1,39 +1,45 @@
+import { Link } from "react-router-dom";
+
 function SingleTableRow({
   name,
   image,
   current_price,
   market_cap,
   market_cap_change_percentage_24h,
+  id,
 }) {
+  const marketCapChangeColor =
+    market_cap_change_percentage_24h > 0 ? "text-green-600" : "text-red-600";
+
   return (
-    <tr className="border-b text-white border-b-white bg-transparent hover:bg-[#200840] cursor-pointer">
-      <th
-        scope="row"
-        className="px-6 py-6  whitespace-nowrap  flex items-center text-2xl gap-4"
+    <Link to={`/${id}`} className="block hover:bg-[#200840] cursor-pointer">
+      <div
+        className={`border-b text-white border-b-white bg-transparent ${marketCapChangeColor}`}
       >
-        <span>
-          <img src={image} alt="crypto coin image" className="h-12" />
-        </span>
-        <span className="opacity-90"> {name} </span>
-      </th>
-      <td className="px-6 py-6 items-center text-xl font-medium">
-        {formatCurrency(current_price)}
-      </td>
-      <td
-        className={`px-6 py-6 items-center text-xl font-medium ${
-          market_cap_change_percentage_24h > 0
-            ? "text-green-600"
-            : "text-red-600"
-        }`}
-      >
-        {getFirstTwoDecimalDigits(market_cap_change_percentage_24h)} %
-      </td>
-      <td className="px-6 py-6 items-center text-xl font-medium">
-        {formatCurrency(market_cap)}
-      </td>
-    </tr>
+        <div className="px-6 py-6 grid grid-cols-4 items-center">
+          <div className="flex items-center">
+            <img src={image} alt="crypto coin image" className="h-12" />
+            <span className="opacity-90 ml-4 text-[1.55rem] font-semibold">
+              {name}
+            </span>
+          </div>
+          <div className="px-6 py-6 text-xl font-medium">
+            {formatCurrency(current_price)}
+          </div>
+          <div
+            className={`px-6 py-6 text-xl font-medium ${marketCapChangeColor}`}
+          >
+            {getFirstTwoDecimalDigits(market_cap_change_percentage_24h)} %
+          </div>
+          <div className="px-6 py-6 text-xl font-medium">
+            {formatCurrency(market_cap)}
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 }
+
 function formatCurrency(number) {
   const roundedNumber = Math.round(number);
   const formattedNumber = roundedNumber.toLocaleString("en-US", {
