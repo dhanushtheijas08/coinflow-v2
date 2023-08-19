@@ -8,25 +8,43 @@ const BASE_URL =
 
 function UseCryptoContextProvider({ children }) {
   const [cryptoData, setCryptoData] = useState([]);
-
+  const [pageNumber, setPageNumber] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function fetchCryptoData() {
-      const res = await fetch(BASE_URL);
-      const data = await res.json();
-      setCryptoData(data);
+      try {
+        setIsLoading(true);
+        const res = await fetch(BASE_URL);
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await res.json();
+        setCryptoData(data);
+      } catch (error) {
+        console.error(
+          "An error occurred while fetching crypto data:",
+          error.message
+        );
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchCryptoData();
   }, []);
 
   return (
-    <CryptoContext.Provider value={{ cryptoData }}>
+    <CryptoContext.Provider value={{ cryptoData, isLoading, setPageNumber }}>
       {children}
     </CryptoContext.Provider>
   );
 }
-
 function useCryptoContext() {
   const context = useContext(CryptoContext);
+  if (!context)
+    throw new Error(
+      "useCryptoContext must be used within a CryptoContextProvider"
+    );
+
   return context;
 }
 

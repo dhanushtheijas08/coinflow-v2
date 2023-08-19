@@ -6,6 +6,7 @@ function CryptoTable() {
   const renderTableRow = cryptoData.map((crypto) => (
     <SingleTableRow
       key={crypto.id}
+      id={crypto.id}
       name={crypto.name}
       image={crypto.image}
       current_price={crypto.current_price}
