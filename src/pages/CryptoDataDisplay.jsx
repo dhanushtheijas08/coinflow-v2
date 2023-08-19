@@ -34,19 +34,25 @@ function CryptoDataDisplay() {
   return (
     <section className="home-section lg:h-screen px-4 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7">
       <Header />
-      {cryptoData && (
-        <SingleCryptoData
-          name={cryptoData.name}
-          rank={cryptoData.market_cap_rank}
-          description={cryptoData.description.en}
-          imagePath={cryptoData.image.large}
-          priceInINR={cryptoData.market_data.current_price.inr}
-          totalWatchlist={cryptoData.watchlist_portfolio_users}
-          priceDifferenceIn24h={
-            cryptoData?.market_data?.price_change_24h_in_currency?.inr
-          }
-        />
-      )}
+      <div className="flex">
+        {isLoading ? (
+          <div className="w-full flex justify-center">
+            <Spinner />
+          </div>
+        ) : cryptoData ? (
+          <SingleCryptoData
+            name={cryptoData.name}
+            rank={cryptoData.market_cap_rank}
+            description={cryptoData.description.en}
+            imagePath={cryptoData.image.large}
+            priceInINR={cryptoData.market_data.current_price.inr}
+            totalWatchlist={cryptoData.watchlist_portfolio_users}
+            priceDifferenceIn24h={
+              cryptoData?.market_data?.price_change_24h_in_currency?.inr
+            }
+          />
+        ) : null}
+      </div>
     </section>
   );
 }

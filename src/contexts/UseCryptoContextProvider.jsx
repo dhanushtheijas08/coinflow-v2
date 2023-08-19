@@ -33,7 +33,9 @@ function UseCryptoContextProvider({ children }) {
   }, []);
 
   return (
-    <CryptoContext.Provider value={{ cryptoData, isLoading, setPageNumber }}>
+    <CryptoContext.Provider
+      value={{ cryptoData, isLoading, setPageNumber, pageNumber }}
+    >
       {children}
     </CryptoContext.Provider>
   );

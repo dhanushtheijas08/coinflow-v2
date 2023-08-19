@@ -35,7 +35,7 @@ body {
     transition: all 500ms ease;
 }
 
-.bg-gradient:hover {
+.bg-gradient.hover-event:hover {
     background-image: linear-gradient(25deg, hsl(249, 100%, 58%), hsl(305, 100%, 60%));
     transform: scale(1.05)
 }

@@ -14,7 +14,9 @@ function JoinUs() {
         Invest and manage all your crypto at one place.
       </p>
 
-      <Button style="bg-gradient mt-8 lg:mt-16">Join Via Twitter</Button>
+      <Button style="bg-gradient hover-event mt-8 lg:mt-16">
+        Join Via Twitter
+      </Button>
     </section>
   );
 }

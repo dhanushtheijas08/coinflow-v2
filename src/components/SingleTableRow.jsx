@@ -16,22 +16,22 @@ function SingleTableRow({
       <div
         className={`border-b text-white border-b-white bg-transparent ${marketCapChangeColor}`}
       >
-        <div className="px-6 py-6 grid grid-cols-4 items-center">
+        <div className="px-6 py-4 grid grid-cols-1 sm:grid-cols-4 items-center">
           <div className="flex items-center">
-            <img src={image} alt="crypto coin image" className="h-12" />
-            <span className="opacity-90 ml-4 text-[1.55rem] font-semibold">
+            <img src={image} alt="crypto coin image" className="h-10 sm:h-12" />
+            <span className="opacity-90 ml-2 sm:ml-4 text-lg sm:text-[1.55rem] font-semibold">
               {name}
             </span>
           </div>
-          <div className="px-6 py-6 text-xl font-medium">
+          <div className="px-6 py-4 text-base sm:text-xl font-medium">
             {formatCurrency(current_price)}
           </div>
           <div
-            className={`px-6 py-6 text-xl font-medium ${marketCapChangeColor}`}
+            className={`px-6 py-4 text-base sm:text-xl font-medium ${marketCapChangeColor}`}
           >
             {getFirstTwoDecimalDigits(market_cap_change_percentage_24h)} %
           </div>
-          <div className="px-6 py-6 text-xl font-medium">
+          <div className="px-6 py-4 text-base sm:text-xl font-medium">
             {formatCurrency(market_cap)}
           </div>
         </div>

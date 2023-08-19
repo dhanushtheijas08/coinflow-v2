@@ -1,17 +1,21 @@
-function HeroSectionCard({ name, price, iconPath, marketCap }) {
+import { Link } from "react-router-dom";
+
+function HeroSectionCard({ name, price, iconPath, marketCap, id }) {
   return (
-    <div className="text-lg lg:text-2xl font-semibold flex flex-col items-center">
-      <img src={iconPath} alt="crypto coin" className="h-16 lg:h-24" />
-      <div className="mt-2">
-        <span> {name} </span>
-        <span
-          className={`${marketCap > 0 ? "text-green-600" : "text-red-600"}`}
-        >
-          {getFirstTwoDecimalDigits(marketCap)} %
-        </span>
+    <Link to={`${id}`}>
+      <div className="text-lg lg:text-2xl font-semibold flex flex-col items-center">
+        <img src={iconPath} alt="crypto coin" className="h-16 lg:h-24" />
+        <div className="mt-2">
+          <span> {name} </span>
+          <span
+            className={`${marketCap > 0 ? "text-green-600" : "text-red-600"}`}
+          >
+            {getFirstTwoDecimalDigits(marketCap)} %
+          </span>
+        </div>
+        <p className="mt-1">{formatCurrency(price)}</p>
       </div>
-      <p className="mt-1">{formatCurrency(price)}</p>
-    </div>
+    </Link>
   );
 }
 
