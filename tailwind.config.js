@@ -12,6 +12,7 @@ export default {
         chooseUsCardBackground: "hsla(0, 0%, 80%, 0.05)",
         chooseUsCardBackgroundHover: "hsla(0, 0%, 100%, 0.1)",
         chooseUsCardBorder: "#82828240",
+        navBarBackground: "",
       },
     },
   },

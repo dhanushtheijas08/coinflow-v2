@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import MarketUpdates from "./pages/MarketUpdates";
 import ChoosUs from "./pages/ChoosUs";

@@ -2,18 +2,50 @@ function Nav() {
   return (
     <nav>
       {/* Desktop NavBar */}
-      <ul className="hidden lg:flex text-2xl gap-12 font-semibold">
+      <ul className="hidden lg:flex text-2xl gap-12  font-semibold">
         <li>
-          <a href="#">Home</a>
+          <a href="#home" className="gradient-hover">
+            Home
+          </a>
         </li>
         <li>
-          <a href="#">Market</a>
+          <a href="#market" className="gradient-hover">
+            Market
+          </a>
         </li>
         <li>
-          <a href="#">Choose Us</a>
+          <a href="#choose-us" className="gradient-hover">
+            Choose Us
+          </a>
         </li>
         <li>
-          <a href="#">Join</a>
+          <a href="#join" className="gradient-hover">
+            Join
+          </a>
+        </li>
+      </ul>
+
+      {/* Mobile NavBar */}
+      <ul className="absolute w-full h-screen flex flex-col lg:hidden">
+        <li>
+          <a href="#home" className="gradient-hover">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#market" className="gradient-hover">
+            Market
+          </a>
+        </li>
+        <li>
+          <a href="#choose-us" className="gradient-hover">
+            Choose Us
+          </a>
+        </li>
+        <li>
+          <a href="#join" className="gradient-hover">
+            Join
+          </a>
         </li>
       </ul>
     </nav>

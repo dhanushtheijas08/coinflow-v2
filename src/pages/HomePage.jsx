@@ -17,7 +17,10 @@ function HomePage() {
     />
   ));
   return (
-    <section className="home-section px-4 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7">
+    <section
+      id="home"
+      className="home-section px-4 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7 flex flex-col"
+    >
       <Header />
       <Hero />
       {isLoading ? (
@@ -25,7 +28,7 @@ function HomePage() {
           <Spinner />
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4  place-content-between lg:place-content-evenly my-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-5 place-content-between lg:place-content-evenly my-16">
           {renderCryptoList}
         </div>
       )}

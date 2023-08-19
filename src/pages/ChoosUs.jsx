@@ -11,7 +11,7 @@ function ChoosUs() {
     />
   ));
   return (
-    <div className="bg-primary py-10 w-full px-12">
+    <div id="choose-us" className="bg-primary py-10 w-full px-12">
       <SectionHeading name="Why Choose Us" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-9 place-items-center my-16">
         {renderCards}

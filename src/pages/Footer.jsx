@@ -13,8 +13,12 @@ function Footer() {
         <FooterLinks />
         <ul className="text-lg md:text-xl lg:text-[1.4rem] text-center">
           <li className="space-x-5">
-            <a href="#">Privacy </a>
-            <a href="#">Terms of Use</a>
+            <a href="#" className="gradient-hover">
+              Privacy{" "}
+            </a>
+            <a href="#" className="gradient-hover">
+              Terms of Use
+            </a>
           </li>
           <small className="text-xs md:text-sm">
             © 2023 Coin Flow 💖 Developed by dhanush theijas
