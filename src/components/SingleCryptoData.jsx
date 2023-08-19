@@ -1,4 +1,5 @@
 import DOMPurify from "dompurify";
+import { useState } from "react";
 function SingleCryptoData({
   name,
   rank,
@@ -8,17 +9,18 @@ function SingleCryptoData({
   totalWatchlist,
   priceDifferenceIn24h,
 }) {
+  const [isLess, setIsLess] = useState(true);
   return (
-    <div className="grid grid-cols-4 mt-20">
+    <div className="grid grid-cols-1 lg:grid-cols-4 mt-20">
       <div className="flex flex-col text-2xl font-semibold items-center">
         <img src={imagePath} alt="crypto coin" className="h-56 mb-8" />
         <span>Name : {name}</span>
         <span>Rank : {rank}</span>
       </div>
-      <div className="col-span-3 ">
-        <div className="flex justify-between text-2xl font-semibold">
+      <div className="col-span-3 md:mt-10 lg:mt-0">
+        <div className="flex flex-wrap flex-col md:flex-row text-center mt-6 md:mt-0 justify-between  md:text-lg lg:text-2xl font-semibold">
           <span>
-            Price :{" "}
+            Price :
             <span className="text-green-600">
               {formatCurrency(getFirstTwoDecimalDigits(priceInINR))}
             </span>
@@ -36,12 +38,37 @@ function SingleCryptoData({
           <span>Total Watchlist : {totalWatchlist}</span>
         </div>
         <div>
-          <p
-            className="crypto-description text-xl text-wrap mt-5"
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(description.slice(0, 660)),
-            }}
-          ></p>
+          {isLess ? (
+            <p className="md:text-lg lg:text-xl text-wrap mt-5 text-justify lg:text-left">
+              <span
+                className="crypto-description"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(description.slice(0, 660)),
+                }}
+              ></span>
+              <span
+                className="text-green-600 cursor-pointer"
+                onClick={() => setIsLess(false)}
+              >
+                {isLess ? "...Read More" : "...Read Less"}
+              </span>
+            </p>
+          ) : (
+            <p className="text-xl text-wrap mt-5">
+              <span
+                className="crypto-description  "
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(description),
+                }}
+              ></span>
+              <span
+                className="text-green-600 cursor-pointer"
+                onClick={() => setIsLess(true)}
+              >
+                {isLess ? "...Read More" : "...Read Less"}
+              </span>
+            </p>
+          )}
         </div>
       </div>
     </div>
