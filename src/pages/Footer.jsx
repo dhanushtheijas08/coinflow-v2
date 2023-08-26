@@ -27,7 +27,7 @@ function Footer() {
       </div>
       <img
         src={footer2}
-        alt="footer 2"
+        alt="footer"
         className="hidden md:block md:h-32 lg:h-60 "
       />
     </footer>
