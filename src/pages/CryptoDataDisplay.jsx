@@ -4,8 +4,6 @@ import Header from "../components/Header";
 import SingleCryptoData from "../components/SingleCryptoData";
 const BASE_URL = "https://api.coingecko.com/api/v3/coins/";
 function CryptoDataDisplay() {
-  // market_cap_rank, description.en, image.large/small/thumb, name, market_data.current_price.inr ,watchlist_portfolio_users
-
   const { id } = useParams();
   const [cryptoData, setCryptoData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +30,7 @@ function CryptoDataDisplay() {
   }, []);
 
   return (
-    <section className="home-section lg:h-screen px-4 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7">
+    <section className="home-section  min-h-screen px-4 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7">
       <Header />
       {cryptoData && (
         <SingleCryptoData
