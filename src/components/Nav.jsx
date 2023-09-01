@@ -26,7 +26,7 @@ function Nav() {
       </ul>
 
       {/* Mobile NavBar */}
-      <ul className="hidden absolute w-full h-screen flex-col lg:hidden">
+      {/* <ul className="hidden absolute w-full h-screen flex-col lg:hidden">
         <li>
           <a href="#home" className="gradient-hover">
             Home
@@ -47,7 +47,7 @@ function Nav() {
             Join
           </a>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 }
